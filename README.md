@@ -6,7 +6,59 @@ https://qiita.com/fukubaka0825/items/c7710b4e87d478c8ba3b
 
 ## Git Flow について
 
+Git には、開発しやすくするためのモデルがあります。
+
+そのうちの一つが Git Flow です。
+
+[参考サイト](https://www.sejuku.net/blog/74224)
+
+今回の擬似体験では、master、develop、feature ブランチの 3 つを使います。
+
+`master ブランチ`
+
+master ブランチには常に安定して動く、リリースした後のコードを置いておきます。
+
+git flow ではこのブランチに直接コミットをすることはないので気をつけましょう。
+
+`develop ブランチ`
+
+develop ブランチでは次のバージョンをリリースするために、最新の開発履歴を残しておきます。
+
+言わば git flow を使った開発の中心となるブランチで、常に最新の変更が加えられているブランチになります。
+
+`feature ブランチ`
+
+feature ブランチは、develop ブランチから分岐しているブランチです。
+
+この feature ブランチでは新しく追加する機能の開発や、簡単なバグの修正を行うことが出来ます。
+
+feature ブランチを変更する機能の数だけ切って、その中で個々の機能についての変更を行っていきます。
+
+このブランチで作業し終わったあとはこのブランチは削除するのが一般的です。
+
+## 環境構築
+
+```zsh
+$ xcode-select --install
+```
+
+- Homebrew を入れる
+
+  https://brew.sh/index_ja.html?_fsi=JrbahF8d
+
+```zsh
+# git-flowの導入
+$ brew install git-flow
+
+# 動作確認
+$ git flow
+```
+
 ## プロジェクトの準備
+
+**好きな場所に batty_coffee_stand ディレクトリを作成**
+
+[カリキュラムのページ](https://tech-boost.jp/common/books/344)
 
 ```zsh
 $ mkdir batty_coffee_stand
@@ -29,7 +81,7 @@ $ mkdir image
 環境は、普段使っている cloud9 の環境またはローカルの環境で
 
 ```zsh
-$ git init
+$ git flow init -d
 $ git add .
 $ git commit -m "first commit"
 $ git remote add origin https://github.com/アカウント名/gitIssue.git
