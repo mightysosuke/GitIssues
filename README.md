@@ -14,19 +14,19 @@ Git には、開発しやすくするためのモデルがあります。
 
 今回の擬似体験では、master、develop、feature ブランチの 3 つを使います。
 
-`master ブランチ`
+**`master ブランチ`**
 
 master ブランチには常に安定して動く、リリースした後のコードを置いておきます。
 
 git flow ではこのブランチに直接コミットをすることはないので気をつけましょう。
 
-`develop ブランチ`
+**`develop ブランチ`**
 
 develop ブランチでは次のバージョンをリリースするために、最新の開発履歴を残しておきます。
 
 言わば git flow を使った開発の中心となるブランチで、常に最新の変更が加えられているブランチになります。
 
-`feature ブランチ`
+**`feature ブランチ`**
 
 feature ブランチは、develop ブランチから分岐しているブランチです。
 
@@ -62,7 +62,7 @@ $ git flow
 
 ## プロジェクトの準備
 
-**好きな場所に batty_coffee_stand ディレクトリを作成**
+- 好きな場所に batty_coffee_stand ディレクトリを作成
 
 [カリキュラムのページ](https://tech-boost.jp/common/books/344)
 
@@ -88,7 +88,7 @@ $ mkdir image
 
 - リモートリポジトリの作成
 
-[GitHub のページ](https://github.com/)
+  [GitHub のページ](https://github.com/)
 
 - ローカルリポジトリの作成
 
@@ -172,4 +172,4 @@ $ git branch -d 'feature/#1'
 
 ## 残りの Issue を片付ける
 
-## master へのマージをしてみる
+## master へのマージをする
