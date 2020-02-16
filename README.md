@@ -86,21 +86,23 @@ $ mkdir image
 
 環境は、普段使っている cloud9 の環境またはローカルの環境で
 
-```zsh
-$ git flow init -d
-$ git add .
-$ git commit -m "first commit"
-```
-
-- new リポジトリの作成
-
-**develop に移動しているかもしれないので確認する**
+- リモートリポジトリの作成
 
 [GitHub のページ](https://github.com/)
 
+- ローカルリポジトリの作成
+
 ```zsh
+$ git init
 $ git remote add origin https://github.com/アカウント名/batty_coffee_stand.git
-$ git push -u origin master
+$ git add .
+$ git commit -m "first commit"
+$ git push origin master
+```
+
+```zsh
+$ git flow init -d
+$ git push origin develop
 ```
 
 ## Issue 管理をしてみる
@@ -144,7 +146,6 @@ Accessの実装
 $ git branch -a
 $ git flow feature start '#1'
 $ git branch
-
 ```
 
 ## ソースコードを修正する
@@ -166,7 +167,7 @@ develop <- feature1 へのマージ
 ```zsh
 $ git checkout develop
 $ git pull origin develop
-$ git branch -d feature1
+$ git branch -d 'feature/#1'
 ```
 
 ## 残りの Issue を片付ける
