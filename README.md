@@ -90,6 +90,26 @@ $ mkdir image
 
   [GitHub のページ](https://github.com/)
 
+- 鍵の作成
+
+```zsh
+$ mkdir ~/.ssh
+$ chmod 700 ~/.ssh
+$ cd ~/.ssh
+
+# githubのemailは自分のemailアドレス
+$ ssh-keygen -t rsa -b 4096 -C "githubのemail"
+
+# その後、returnキーを3回
+```
+
+- 鍵の登録
+
+```zsh
+$ cat id_rsa.pub
+$ ssh -T git@github.com
+```
+
 - ローカルリポジトリの作成
 
 ```zsh
