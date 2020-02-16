@@ -38,6 +38,12 @@ feature ブランチを変更する機能の数だけ切って、その中で個
 
 ## 環境構築
 
+- VSCode をインストールする
+
+  https://code.visualstudio.com/
+
+- XCode をインストールする
+
 ```zsh
 $ xcode-select --install
 ```
@@ -76,7 +82,7 @@ $ mkdir image
 
 ```
 
-## git の準備
+## Git と GitHub の準備
 
 環境は、普段使っている cloud9 の環境またはローカルの環境で
 
@@ -84,24 +90,18 @@ $ mkdir image
 $ git flow init -d
 $ git add .
 $ git commit -m "first commit"
-$ git remote add origin https://github.com/アカウント名/gitIssue.git
-$ git push -u origin master
 ```
 
-## ブランチを切ってみる(dev)
+- new リポジトリの作成
+
+**develop に移動しているかもしれないので確認する**
+
+[GitHub のページ](https://github.com/)
 
 ```zsh
-# developブランチを切る
-$ git branch develop
-
-# developブランチへ移動
-$ git checkout develop
-
-# masterがdevelopに変わったことを確認
-
+$ git remote add origin https://github.com/アカウント名/batty_coffee_stand.git
+$ git push -u origin master
 ```
-
-- develop ブランチの役割について説明
 
 ## Issue 管理をしてみる
 
@@ -111,7 +111,7 @@ $ git checkout develop
 # Title
 HTMLとCSSのベース
 
-# コメント
+# comment
 ベースの作成をする
 ```
 
@@ -138,11 +138,13 @@ Accessの実装
 フッターを実装して完成
 ```
 
-## Issue に合わせてブランチを切る
+## ブランチを切る(Git Flow)
 
 ```zsh
-# developブランチからfeatureブランチを切る
-$ git checkout - b feature1
+$ git branch -a
+$ git flow feature start '#1'
+$ git branch
+
 ```
 
 ## ソースコードを修正する
@@ -154,7 +156,7 @@ $ git checkout - b feature1
 ```zsh
 $ git add .
 $ git commit -m "HTMLとCSSのベース #1"
-$ git push origin feature1
+$ git push origin 'feature/#1'
 ```
 
 develop <- feature1 へのマージ
