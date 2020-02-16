@@ -183,11 +183,11 @@ $ git branch -a
 
 1. GitHub の「New issue」から issue を作成
 
-![GitIssue1](./git_Issue1.png)
+![GitIssue1](./images/git_Issue1.png)
 
 2. Title と comment を以下の issue の通りに埋めて、「Submit new issue」をクリック
 
-![GitIssue2](./git_Issue2.png)
+![GitIssue2](./images/git_Issue2.png)
 
 **Issue1**
 
@@ -277,25 +277,25 @@ $ git push origin 'feature/#1'
 
 2. GitHub の「New pull request」から pull request を作成
 
-![GitMerge1](./git_Merge1.png)
+![GitMerge1](./images/git_Merge1.png)
 
 3. base を develop、compare を feature/#1 に設定する<br>
    そして、Create pull request をクリック
 
-![GitMerge2](./git_Merge2.png)
+![GitMerge2](./images/git_Merge2.png)
 
 4. Create pull request ボタンをクリックする<br>
    Reviewers や Assignees のことは、[こちらの記事のその他の設定項目](https://ics.media/entry/14449/)を参考にしてください。
 
-![GitMerge3](./git_Merge3.png)
+![GitMerge3](./images/git_Merge3.png)
 
 5. コンフリクトが無いことを確認して、Merge pull request をクリック → Confirm merge をクリック
 
-![GitMerge4](./git_Merge4.png)
+![GitMerge4](./images/git_Merge4.png)
 
 6. Pull request successfully merged and closed となったら、Delete branch をクリック
 
-![GitMerge5](./git_Merge5.png)
+![GitMerge5](./images/git_Merge5.png)
 
 これで、リモートの feature ブランチは削除されました。
 
@@ -319,19 +319,19 @@ $ git branch
 
 1. issue 一覧から、削除したい issue をクリックする
 
-![Issueクローズ1](./issue_close1.png)
+![Issueクローズ1](./images/issue_close1.png)
 
 2. 任意でコメントをつけて、Close and comment をクリック
 
-![Issueクローズ2](./issue_close2.png)
+![Issueクローズ2](./images/issue_close2.png)
 
 3. ステータスが`Closed`に変わる
 
-![Issueクローズ3](./issue_close3.png)
+![Issueクローズ3](./images/issue_close3.png)
 
 4. issue 一覧の、`Open` から `Closed` へと場所が変わる
 
-![Issueクローズ4](./issue_close4.png)
+![Issueクローズ4](./images/issue_close4.png)
 
 ## issue 番号についての解説
 
@@ -341,7 +341,7 @@ $ git branch
 以下の画像の`HTMLとCSSのベース`はクリックすることができます。<br>
 そして、ここをクリックするとコミットしたソースコードの差分を見ることができます。
 
-![Issueクローズ2](./issue_close2.png)
+![Issueクローズ2](./images/issue_close2.png)
 
 ## 残りの Issue を片付ける
 
