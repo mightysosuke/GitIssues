@@ -19,6 +19,8 @@ Git には、開発しやすくするためのモデルがあります。<br>
 
 今回の擬似体験では、master、develop、feature の 3 つのブランチを使います。
 
+![Git Flow](./git_flow.png)
+
 **`master ブランチ`**
 
 master ブランチには常に安定して動く、リリースした後のコードを置いておきます。<br>git flow ではこのブランチに直接コミットをすることはないので気をつけましょう。
@@ -35,21 +37,20 @@ feature ブランチは、develop ブランチから分岐しているブラン�
 
 1. VSCode をインストールする
 
-https://code.visualstudio.com/
+   https://code.visualstudio.com/
 
 2. XCode をインストールする
 
-コマンド入力後、インストール確認のポップアップが出たらインストールをクリック
+   コマンド入力後、インストール確認のポップアップが出たらインストールをクリック
 
 ```zsh
 $ xcode-select --install
 ```
 
-3. Homebrew を入れる
+3. Homebrew を導入する
 
-Homebrew のページから、コマンドをコピーして入力
-
-https://brew.sh/index_ja.html?_fsi=JrbahF8d
+   Homebrew のページから、コマンドをコピーして、ターミナルに入力<br>
+   https://brew.sh/index_ja.html?_fsi=JrbahF8d
 
 4. git-flow を導入する
 
@@ -79,7 +80,7 @@ Try 'git flow <subcommand> help' for details.
 1. 好きな場所に「 batty_coffee_stand 」ディレクトリを作成<br>
    私の場合、ホームディレクトリに`workspace`というディレクトリを作成し、そこでプロジェクトを管理しています。
 
-techboost の受講中コースから、「Front05 HTML と CSS でサイトを作成していく」を開く
+2. techboost の受講中コースから、「Front05 HTML と CSS でサイトを作成していく」を開き、プロジェクトを準備する
 
 ```zsh
 $ mkdir batty_coffee_stand
@@ -101,9 +102,7 @@ $ mkdir image
 
 1. リモートリポジトリの作成
 
-GitHub 上に、batty_coffee_stand という名前で作成
-
-[GitHub のページ](https://github.com/)
+   [GitHub](https://github.com/) 上に、batty_coffee_stand という名前で作成
 
 2. 鍵の作成
 
@@ -114,9 +113,18 @@ $ cd ~/.ssh
 
 # githubのemailは自分のemailアドレス
 $ ssh-keygen -t rsa -b 4096 -C "githubのemail"
-
-# その後、Enterキーを3回
 ```
+
+すると、以下のように表示されるので、`Enterキーを3回`押してください。
+
+```
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/(username)/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+```
+
+本来は passphrase を入力すべきですが、今回は便宜上、未入力で進めます。
 
 3. 鍵の登録
 
@@ -160,7 +168,7 @@ $ cd batty_coffee_standのディレクトリ
 $ git init
 
 # git@より後ろは、GitHubのSSHというところから引っ張ってきます。
-$ git remote add git@github.com:アカウント名/GitIssues.git
+$ git remote add git@github.com:アカウント名/batty_coffee_stand.git
 $ git add .
 $ git commit -m "first commit"
 $ git push origin master
@@ -185,11 +193,11 @@ $ git branch -a
 
 ![GitIssue1](./images/git_Issue1.png)
 
-2. Title と comment を以下の issue の通りに埋めて、「Submit new issue」をクリック
+2. Title と comment を以下の issue1〜issue4 の通りに埋めて、「Submit new issue」をクリック
 
 ![GitIssue2](./images/git_Issue2.png)
 
-**Issue1**
+**issue1**
 
 ```zsh
 # Title
@@ -199,7 +207,7 @@ HTMLとCSSのベース
 ベースの作成をする
 ```
 
-**Issue2**
+**issue2**
 
 ```zsh
 # Title
@@ -210,7 +218,7 @@ HTMLとCSSのベース
 ナビゲーション部分の実装
 ```
 
-**Issue3**
+**issue3**
 
 ```zsh
 # Title
@@ -224,7 +232,7 @@ Staffの実装
 Accessの実装
 ```
 
-**Issue4**
+**issue4**
 
 ```zsh
 # Title
@@ -234,7 +242,16 @@ Accessの実装
 フッターを実装して完成
 ```
 
+`ポイント`<br>
+issue を作成すると、自動的に番号がつけられます。<br>
+この画像でいうと、HTML と CSS のベースというタイトルの横に`#1`という番号がつけられています。
+
+![GitIssue3](./images/git_Issue3.png)
+
 ## ブランチを切る
+
+先ほどの issue と同じ番号のブランチを切っていきます。<br>
+このブランチでは、issue に書かれているタスクを完了させるための実装のみ実施していきます。
 
 ```zsh
 # featureの'#1'という名前のブランチを切る
@@ -243,8 +260,6 @@ $ git flow feature start '#1'
 # ブランチを表示する
 $ git branch
 ```
-
-'#1'というのは、先ほど作成した issue の Title についている番号のことです。
 
 ## ソースコードを修正する
 
@@ -315,6 +330,8 @@ $ git branch -d 'feature/#1'
 $ git branch
 ```
 
+`feature/#1`ブランチが削除されていたら、ブランチの削除は成功です！
+
 ## issue をクローズする
 
 1. issue 一覧から、削除したい issue をクリックする
@@ -343,11 +360,11 @@ $ git branch
 
 ![Issueクローズ2](./images/issue_close2.png)
 
-## 残りの Issue を片付ける
+## 残りの issue を片付ける
 
-今までの一連の流れに沿ってソースコードを修正していきましょう
+今までの一連の流れに沿ってソースコードを修正していきましょう。
 
-#2〜#4 の issue も全てクローズさせてみてください
+#2〜#4 の issue も全てクローズさせてみてください。
 
 ## master <- develop のマージをする
 
