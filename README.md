@@ -1,16 +1,16 @@
 # Git Flow と Issue 管理の擬似体験
 
-## 目的
+## ① 目的
 
 1. Git Flow を使って開発効率を上げること
 2. GitHub の Issue を使って、自分のタスクをうまく管理できるようにすること
 3. ローカルの開発環境での開発を体験してみること
 
-## 参考資料
+## ② 参考資料
 
 https://qiita.com/fukubaka0825/items/c7710b4e87d478c8ba3b
 
-## git flow について
+## ③git flow について
 
 Git には、開発しやすくするためのモデルがあります。<br>
 そのうちの一つが `git flow` です。
@@ -22,6 +22,8 @@ Git には、開発しやすくするためのモデルがあります。<br>
 ![Git Flow](./git_flow.png)
 
 **`master ブランチ`**
+
+**ユーザーにとっての最新版**
 
 master ブランチには常に安定して動く、リリースした後のコードを置いておきます。<br>git flow ではこのブランチに直接コミットをすることはないので気をつけましょう。
 
@@ -96,6 +98,9 @@ $ touch style.css
 $ cd ..
 $ mkdir image
 
+# lsコマンドでディレクトリの確認
+$ ls
+
 ```
 
 ## Git と GitHub の準備
@@ -168,7 +173,7 @@ $ cd batty_coffee_standのディレクトリ
 $ git init
 
 # git@より後ろは、GitHubのSSHというところから引っ張ってきます。
-$ git remote add git@github.com:アカウント名/batty_coffee_stand.git
+$ git remote add origin git@github.com:アカウント名/batty_coffee_stand.git
 $ git add .
 $ git commit -m "first commit"
 $ git push origin master
@@ -177,6 +182,10 @@ $ git push origin master
 5. git flow の設定
 
 ```zsh
+
+# ブランチの確認
+$ git branch
+
 # git flowの設定をするコマンド
 # developブランチが自動的に作成され、developブランチに移動
 $ git flow init -d
@@ -187,13 +196,15 @@ $ git push origin develop
 $ git branch -a
 ```
 
+出てくるブランチを書く
+
 ## Issue 管理をしてみる
 
 1. GitHub の「New issue」から issue を作成
 
 ![GitIssue1](./images/git_Issue1.png)
 
-2. Title と comment を以下の issue1〜issue4 の通りに埋めて、「Submit new issue」をクリック
+2. Title と comment を以下の issue1 の通りに埋めて、「Submit new issue」をクリック
 
 ![GitIssue2](./images/git_Issue2.png)
 
@@ -206,6 +217,8 @@ HTMLとCSSのベース
 # comment
 ベースの作成をする
 ```
+
+3. 残りの下記の issue2〜issue4 も同様に作成
 
 **issue2**
 
@@ -244,13 +257,13 @@ Accessの実装
 
 `ポイント`<br>
 issue を作成すると、自動的に番号がつけられます。<br>
-この画像でいうと、HTML と CSS のベースというタイトルの横に`#1`という番号がつけられています。
+この画像でいうと、HTML と CSS のベースというタイトルの右側に`#1`という番号がつけられています。
 
 ![GitIssue3](./images/git_Issue3.png)
 
 ## ブランチを切る
 
-先ほどの issue と同じ番号のブランチを切っていきます。<br>
+先ほどの issue と同じ番号の feature ブランチを切っていきます。<br>
 このブランチでは、issue に書かれているタスクを完了させるための実装のみ実施していきます。
 
 ```zsh
@@ -258,6 +271,7 @@ issue を作成すると、自動的に番号がつけられます。<br>
 $ git flow feature start '#1'
 
 # ブランチを表示する
+# feature/#1が作られていることを確認
 $ git branch
 ```
 
