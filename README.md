@@ -12,24 +12,26 @@ https://qiita.com/fukubaka0825/items/c7710b4e87d478c8ba3b
 
 ## ③ 環境構築
 
-1. VSCode をインストールする
+ローカル環境での開発環境を構築していきます。
 
-   https://code.visualstudio.com/
+### 1. VSCode をインストールする
 
-2. XCode をインストールする
+https://code.visualstudio.com/
 
-   コマンド入力後、インストール確認のポップアップが出たらインストールをクリック
+### 2. XCode をインストールする
+
+コマンド入力後、インストール確認のポップアップが出たらインストールをクリック
 
 ```zsh
 $ xcode-select --install
 ```
 
-3. Homebrew を導入する
+### 3. Homebrew を導入する
 
-   Homebrew のページから、コマンドをコピーして、ターミナルに入力<br>
-   https://brew.sh/index_ja.html?_fsi=JrbahF8d
+Homebrew のページから、コマンドをコピーして、ターミナルに入力<br>
+https://brew.sh/index_ja.html?_fsi=JrbahF8d
 
-4. git-flow を導入する
+### 4. git-flow を導入する
 
 ```zsh
 # git-flowの導入
@@ -54,10 +56,11 @@ Try 'git flow <subcommand> help' for details.
 
 ## ④ プロジェクトの準備
 
-1. 好きな場所に「 batty_coffee_stand 」ディレクトリを作成<br>
-   私の場合、ホームディレクトリに`workspace`というディレクトリを作成し、そこでプロジェクトを管理しています。
+### 1. 好きな場所に「 batty_coffee_stand 」ディレクトリを作成
 
-2. techboost の受講中コースから、「Front05 HTML と CSS でサイトを作成していく」を開き、プロジェクトを準備する
+私の場合、ホームディレクトリに`workspace`というディレクトリを作成し、そこでプロジェクトを管理しています。
+
+### 2. techboost の受講中コースから、「Front05 HTML と CSS でサイトを作成していく」を開き、プロジェクトを準備する
 
 ```zsh
 $ mkdir batty_coffee_stand
@@ -77,17 +80,21 @@ $ mkdir image
 $ ls
 
 # このように出力されればOK！
-ss        image      index.html
+css        image      index.html
 ```
 
 ## ⑤git flow について
 
-Git には、開発しやすくするためのモデルがあります。<br>
+Git には、Git を使って開発しやすくするためのモデルがあります。<br>
 そのうちの一つが `git flow` です。
 
 [参考サイト](https://www.sejuku.net/blog/74224)
 
 今回の擬似体験では、master、develop、feature の 3 つのブランチを使います。
+
+`ブランチとは`
+
+> ブランチとは、履歴の流れを分岐して記録していくためのものです。<br>分岐したブランチは他のブランチの影響を受けないため、同じリポジトリ中で複数の変更を同時に進めていくことができます。<br>[サルでもわかる Git 入門](https://backlog.com/ja/git-tutorial/stepup/01/)より
 
 ![Git Flow](./git_flow.png)
 
@@ -111,11 +118,13 @@ feature ブランチは、develop ブランチから分岐しているブラン�
 
 ## ⑥Git と GitHub の準備
 
-1. リモートリポジトリの作成
+### 1. リモートリポジトリの作成
 
-   [GitHub](https://github.com/) 上に、batty_coffee_stand という名前で新しいリポジトリを作成
+[GitHub](https://github.com/) 上に、batty_coffee_stand という名前で新しいリポジトリを作成
 
-2. 鍵の作成
+### 2. 鍵の作成
+
+ローカル環境に鍵を作成したことがある場合は、鍵の作成と登録は飛ばしてください。
 
 ```zsh
 $ mkdir ~/.ssh
@@ -137,7 +146,7 @@ Enter same passphrase again:
 
 本来は passphrase を入力すべきですが、今回は便宜上、未入力で進めます。
 
-3. 鍵の登録
+### 3. 鍵の登録
 
 ```zsh
 $ cat id_rsa.pub
@@ -167,7 +176,7 @@ Are you sure you want to continue connecting (yes/no)?
 Hi （自分のアカウント名） You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-4. ローカルリポジトリの作成
+### 4. ローカルリポジトリの作成
 
 ```zsh
 # ホームディレクトリ に戻る
@@ -185,12 +194,16 @@ $ git commit -m "first commit"
 $ git push origin master
 ```
 
-5. git flow の設定
+### 5. git flow の設定
 
 ```zsh
 # ブランチの確認
 $ git branch
 
+* master
+```
+
+```zsh
 # git flowの設定をするコマンド
 # developブランチが自動的に作成され、developブランチに移動
 $ git flow init -d
@@ -209,11 +222,11 @@ $ git branch -a
 
 ## ⑦issue 管理をしてみる
 
-1. GitHub の「New issue」から issue を作成
+### 1. GitHub の「New issue」から issue を作成
 
 ![GitIssue1](./images/git_Issue1.png)
 
-2. Title と comment を以下の issue1 の通りに埋めて、「Submit new issue」をクリック
+### 2. Title と comment を以下の issue1 の通りに埋めて、「Submit new issue」をクリック
 
 ![GitIssue2](./images/git_Issue2.png)
 
@@ -227,7 +240,7 @@ HTMLとCSSのベース
 ベースの作成をする
 ```
 
-3. 残りの下記の issue2〜issue4 も同様に作成
+### 3. 残りの下記の issue2〜issue4 も同様に New issue から作成
 
 **issue2**
 
@@ -266,35 +279,47 @@ Accessの実装
 
 `ポイント`<br>
 issue を作成すると、自動的に番号がつけられます。<br>
-この画像でいうと、HTML と CSS のベースというタイトルの右側に`#1`という番号がつけられています。
+この画像でいうと、HTML と CSS のベースというタイトルの右側に`#1`という番号がつけられています。<br>
+この番号は、後のコミットメッセージで必要となる番号です。
 
 ![GitIssue3](./images/git_Issue3.png)
 
 ## ⑧ ブランチを切る
 
 先ほどの issue と同じ番号の feature ブランチを切っていきます。<br>
-このブランチでは、issue に書かれているタスクを完了させるための実装のみ実施していきます。
+このブランチでは、issue に書かれているタスクを完了させるためのコーディングのみ実施していきます。
 
 ```zsh
 # featureの'#1'という名前のブランチを切る
 $ git flow feature start '#1'
 
-# ブランチを表示する
-# feature/#1が作られていることを確認
+# feature/#1ブランチが作られていることを確認
 $ git branch
+
+  develop
+* feature/#1
+  master
 ```
 
 ## ⑨ ソースコードを修正する
 
-1. issue に合わせてソースコードを修正
+### 1. issue に合わせてソースコードを修正
 
 &emsp;&emsp;各 issue は、「Front05 HTML と CSS でサイトを作成していく」と紐づいています。
 
-2. VSCode でファイルオープン
+### 2. VSCode でファイルを開いて、編集していきましょう。
 
 ## ⑩ プルリクエストを送ってマージする
 
-1. 以下のコマンドを入力して、リモートリポジトリに push する
+`プルリクエストとは`<br>
+
+> 「プルリクエスト」とは、開発者のローカルリポジトリで加えた変更を、他の開発者に知らせ、レビューしてもらう機能です。<br> > [詳細はこちら](https://fresopiya.com/2019/03/10/gitpullrequest/)
+
+`マージとは`<br>
+簡単にいうと、ソースコードを合流させることです。<br>
+今回は`developブランチ`に`featureブランチ`をマージします。
+
+### 1. 以下のコマンドを入力して、リモートリポジトリに push する
 
 `ポイント`
 
@@ -305,71 +330,80 @@ $ git branch
 # ステージング状態にする
 $ git add .
 
-# コミットする(コミットコメントにIssueの番号をつける)
-# コミットメッセージはIssueのTitleと同じにしておきます
+# コミットする(コミットコメントにissueの番号をつける)
+# コミットメッセージはissueのTitleと同じにしておきます
 $ git commit -m "HTMLとCSSのベース #1"
 
 # リモートにプッシュする
 $ git push origin 'feature/#1'
 ```
 
-2. GitHub の「New pull request」から pull request を作成
+### 2. GitHub の「New pull request」から pull request を作成
 
 ![GitMerge1](./images/git_Merge1.png)
 
-3. base を develop、compare を feature/#1 に設定する<br>
-   そして、Create pull request をクリック
+### 3. base を develop、compare を feature/#1 に設定する
+
+そして、Create pull request をクリック
 
 ![GitMerge2](./images/git_Merge2.png)
 
-4. Create pull request ボタンをクリックする<br>
-   Reviewers や Assignees のことは、[こちらの記事のその他の設定項目](https://ics.media/entry/14449/)を参考にしてください。
+### 4. Create pull request ボタンをクリックする<br>
+
+Reviewers や Assignees のことは、[こちらの記事のその他の設定項目](https://ics.media/entry/14449/)を参考にしてください。
 
 ![GitMerge3](./images/git_Merge3.png)
 
-5. コンフリクトが無いことを確認して、Merge pull request をクリック → Confirm merge をクリック
+### 5. コンフリクトが無いことを確認して、Merge pull request をクリック
 
 ![GitMerge4](./images/git_Merge4.png)
 
-6. Pull request successfully merged and closed となったら、Delete branch をクリック
+### 6.Confirm merge をクリック
 
 ![GitMerge5](./images/git_Merge5.png)
+
+### 7. Pull request successfully merged and closed となったら、Delete branch をクリック
+
+![GitMerge6](./images/git_Merge6.png)
 
 これで、リモートの feature ブランチは削除されました。
 
 ## 11 ローカルリポジトリの feature ブランチを削除する
 
 ```zsh
-# developへの移動
+# developブランチへの移動
 $ git checkout develop
 
-# pullして、developを最新の状態にする
+# pullして、developブランチを最新の状態にする
 $ git pull origin develop
 
-# feature/#1を削除する
+# feature/#1ブランチを削除する
 $ git branch -d 'feature/#1'
 
-# branchの状態を確認する
+# ブランチの状態を確認する
 $ git branch
+
+* develop
+  master
 ```
 
 `feature/#1`ブランチが削除されていたら、ブランチの削除は成功です！
 
 ## 12 issue をクローズする
 
-1. issue 一覧から、削除したい issue をクリックする
+### 1. issue 一覧から、削除したい issue をクリックする
 
 ![Issueクローズ1](./images/issue_close1.png)
 
-2. 任意でコメントをつけて、Close and comment をクリック
+### 2. 任意でコメントをつけて、Close and comment をクリック
 
 ![Issueクローズ2](./images/issue_close2.png)
 
-3. ステータスが`Closed`に変わる
+### 3. ステータスが`Closed`に変わる
 
 ![Issueクローズ3](./images/issue_close3.png)
 
-4. issue 一覧の、`Open` から `Closed` へと場所が変わる
+### 4. issue 一覧の`Open` から、 `Closed` へと issue の場所が変わる
 
 ![Issueクローズ4](./images/issue_close4.png)
 
@@ -383,9 +417,11 @@ $ git branch
 
 ![Issueクローズ2](./images/issue_close2.png)
 
+![Issueクローズ3](./images/issue_close3.png)
+
 ## 14 残りの issue を片付ける
 
-今までの一連の流れに沿ってソースコードを修正していきましょう。
+今までの一連の流れに沿って続きのソースコードを修正していきましょう。
 
 #2〜#4 の issue も全てクローズさせてみてください。
 
@@ -394,3 +430,6 @@ $ git branch
 今までに学んだことを活かして、develop ブランチのソースコードを master にマージしてみましょう。
 
 develop ブランチは今後も使われるので、ブランチを削除しなくても構いません。
+
+以上で今回の擬似体験は終了です。<br>
+ご自身の開発に活かしてみてください！！！
