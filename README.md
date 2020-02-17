@@ -75,6 +75,9 @@ $ mkdir image
 
 # lsコマンドでディレクトリの確認
 $ ls
+
+# このように出力されればOK！
+ss        image      index.html
 ```
 
 ## ⑤git flow について
@@ -96,9 +99,13 @@ master ブランチには常に安定して動く、リリースした後のコ�
 
 **`develop ブランチ`**
 
+**開発者にとっての最新版**
+
 develop ブランチでは次のバージョンをリリースするために、最新の開発履歴を残しておきます。<br>言わば git flow を使った開発の中心となるブランチで、常に最新の変更が加えられているブランチになります。
 
 **`feature ブランチ`**
+
+**タスクや機能ごとに切られたブランチ**
 
 feature ブランチは、develop ブランチから分岐しているブランチです。<br>この feature ブランチでは新しく追加する機能の開発や、簡単なバグの修正を行うことが出来ます。<br>feature ブランチを変更する機能の数だけ切って、その中で個々の機能についての変更を行っていきます。<br>このブランチで作業し終わったあとはこのブランチは削除するのが一般的です。
 
@@ -106,7 +113,7 @@ feature ブランチは、develop ブランチから分岐しているブラン�
 
 1. リモートリポジトリの作成
 
-   [GitHub](https://github.com/) 上に、batty_coffee_stand という名前で作成
+   [GitHub](https://github.com/) 上に、batty_coffee_stand という名前で新しいリポジトリを作成
 
 2. 鍵の作成
 
@@ -171,7 +178,7 @@ $ cd batty_coffee_standのディレクトリ
 ```zsh
 $ git init
 
-# git@より後ろは、GitHubのSSHというところから引っ張ってきます。
+# batty_coffee_standのリモートリポジトリのページから、コマンドをコピーしてもOKです
 $ git remote add origin git@github.com:アカウント名/batty_coffee_stand.git
 $ git add .
 $ git commit -m "first commit"
@@ -181,7 +188,6 @@ $ git push origin master
 5. git flow の設定
 
 ```zsh
-
 # ブランチの確認
 $ git branch
 
@@ -193,9 +199,13 @@ $ git push origin develop
 
 # リモートブランチを含むブランチの確認
 $ git branch -a
-```
 
-出てくるブランチを書く
+ # 以下の通りに出力されたらOK！
+* develop
+  master
+  remotes/origin/develop
+  remotes/origin/master
+```
 
 ## ⑦issue 管理をしてみる
 
