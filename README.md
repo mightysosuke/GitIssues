@@ -187,7 +187,7 @@ $ cd batty_coffee_standのディレクトリ
 ```zsh
 $ git init
 
-# batty_coffee_standのリモートリポジトリのページから、コマンドをコピーしてもOKです
+# batty_coffee_standのリモートリポジトリのページから、SSHのコマンドをコピーしてもOKです
 $ git remote add origin git@github.com:アカウント名/batty_coffee_stand.git
 $ git add .
 $ git commit -m "first commit"
@@ -219,6 +219,8 @@ $ git branch -a
   remotes/origin/develop
   remotes/origin/master
 ```
+
+`git branch -a`を打ったとき、緑色のブランチが現在いるブランチ、赤色のブランチがリモートブランチです。
 
 ## ⑦issue 管理をしてみる
 
@@ -305,9 +307,9 @@ $ git branch
 
 ### 1. issue に合わせてソースコードを修正
 
-&emsp;&emsp;各 issue は、「Front05 HTML と CSS でサイトを作成していく」と紐づいています。
+&emsp;&emsp;各 issue は、techboost のカリキュラム「Front05 HTML と CSS でサイトを作成していく」と紐づいています。
 
-### 2. VSCode でファイルを開いて、編集していきましょう。
+### 2. VSCode でファイルを開いて、編集していきましょう。(コピペで OK)
 
 ## ⑩ プルリクエストを送ってマージする
 
