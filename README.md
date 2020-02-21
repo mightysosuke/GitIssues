@@ -124,6 +124,8 @@ feature ブランチは、develop ブランチから分岐しているブラン�
 
 ### 2. 鍵の作成
 
+Windows の方は[こちら](https://qiita.com/reflet/items/5c6ba6e29fe8436c3185)
+
 ローカル環境に鍵を作成したことがある場合は、鍵の作成と登録は飛ばしてください。
 
 ```zsh
