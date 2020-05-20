@@ -37,6 +37,7 @@ https://brew.sh/index_ja.html?_fsi=JrbahF8d
 
 ## ④Git と GitHub の準備
 
+
 ### 1. リモートリポジトリの作成
 
 [GitHub](https://github.com/) 上に、batty_coffee_stand という名前で新しいリポジトリを作成
@@ -99,7 +100,7 @@ Hi （自分のアカウント名） You've successfully authenticated, but GitH
 
 ### 4. git-flow を導入する
 
-今回、重要なgit-flowをインストールします。</br>
+今回の講座で重要なgit-flowをインストールします。</br>
 詳細は⑤git flow についてにて説明します。
 
 ```zsh
