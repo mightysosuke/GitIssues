@@ -12,11 +12,15 @@ https://qiita.com/fukubaka0825/items/c7710b4e87d478c8ba3b
 
 ## ③ 環境構築
 
+ここからが実際の作業です。
+
 ローカル環境での開発環境を構築していきます。
 
 ### 1. VSCode をインストールする
 
 https://code.visualstudio.com/
+
+VSCodeには便利な拡張機能があるので、ご自身で調べて使ってみてください。
 
 ### 2. XCode をインストールする
 
@@ -31,92 +35,8 @@ $ xcode-select --install
 Homebrew のページから、コマンドをコピーして、ターミナルに入力<br>
 https://brew.sh/index_ja.html?_fsi=JrbahF8d
 
-### 4. git-flow を導入する
+## ④Git と GitHub の準備
 
-```zsh
-# git-flowの導入
-$ brew install git-flow
-
-# 動作確認
-$ git flow
-
-# これが出たらOK！
-usage: git flow <subcommand>
-
-Available subcommands are:
-   init      Initialize a new git repo with support for the branching model.
-   feature   Manage your feature branches.
-   release   Manage your release branches.
-   hotfix    Manage your hotfix branches.
-   support   Manage your support branches.
-   version   Shows version information.
-
-Try 'git flow <subcommand> help' for details.
-```
-
-## ④ プロジェクトの準備
-
-### 1. 好きな場所に「 batty_coffee_stand 」ディレクトリを作成
-
-私の場合、ホームディレクトリに`workspace`というディレクトリを作成し、そこでプロジェクトを管理しています。
-
-### 2. techboost の受講中コースから、「Front05 HTML と CSS でサイトを作成していく」を開き、プロジェクトを準備する
-
-```zsh
-$ mkdir batty_coffee_stand
-$ cd batty_coffee_stand
-$ touch index.html
-$ mkdir css
-
-# 前のコマンドの引数のディレクトリに移動
-$ cd $_
-$ touch style.css
-
-# 一つ上のディレクトリに移動
-$ cd ..
-$ mkdir image
-
-# lsコマンドでディレクトリの確認
-$ ls
-
-# このように出力されればOK！
-css        image      index.html
-```
-
-## ⑤git flow について
-
-Git には、Git を使って開発しやすくするためのモデルがあります。<br>
-そのうちの一つが `git flow` です。
-
-[参考サイト](https://www.sejuku.net/blog/74224)
-
-今回の擬似体験では、master、develop、feature の 3 つのブランチを使います。
-
-`ブランチとは`
-
-> ブランチとは、履歴の流れを分岐して記録していくためのものです。<br>分岐したブランチは他のブランチの影響を受けないため、同じリポジトリ中で複数の変更を同時に進めていくことができます。<br>[サルでもわかる Git 入門](https://backlog.com/ja/git-tutorial/stepup/01/)より
-
-![Git Flow](./git_flow.png)
-
-**`master ブランチ`**
-
-**ユーザーにとっての最新版**
-
-master ブランチには常に安定して動く、リリースした後のコードを置いておきます。<br>git flow ではこのブランチに直接コミットをすることはないので気をつけましょう。
-
-**`develop ブランチ`**
-
-**開発者にとっての最新版**
-
-develop ブランチでは次のバージョンをリリースするために、最新の開発履歴を残しておきます。<br>言わば git flow を使った開発の中心となるブランチで、常に最新の変更が加えられているブランチになります。
-
-**`feature ブランチ`**
-
-**タスクや機能ごとに切られたブランチ**
-
-feature ブランチは、develop ブランチから分岐しているブランチです。<br>この feature ブランチでは新しく追加する機能の開発や、簡単なバグの修正を行うことが出来ます。<br>feature ブランチを変更する機能の数だけ切って、その中で個々の機能についての変更を行っていきます。<br>このブランチで作業し終わったあとはこのブランチは削除するのが一般的です。
-
-## ⑥Git と GitHub の準備
 
 ### 1. リモートリポジトリの作成
 
@@ -124,9 +44,9 @@ feature ブランチは、develop ブランチから分岐しているブラン�
 
 ### 2. 鍵の作成
 
-Windows の方は[こちら](https://qiita.com/reflet/items/5c6ba6e29fe8436c3185)
-
 ローカル環境に鍵を作成したことがある場合は、鍵の作成と登録は飛ばしてください。
+
+Windows の方は[こちら](https://qiita.com/reflet/items/5c6ba6e29fe8436c3185)
 
 ```zsh
 $ mkdir ~/.ssh
@@ -178,11 +98,67 @@ Are you sure you want to continue connecting (yes/no)?
 Hi （自分のアカウント名） You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-### 4. ローカルリポジトリの作成
+### 4. git-flow を導入する
+
+今回の講座で重要なgit-flowをインストールします。</br>
+詳細は⑤git flow についてにて説明します。
 
 ```zsh
 # ホームディレクトリ に戻る
 $ cd
+
+# git-flowのインストール
+$ brew install git-flow
+
+# 動作確認
+$ git flow
+
+# これが出たらOK！
+usage: git flow <subcommand>
+
+Available subcommands are:
+   init      Initialize a new git repo with support for the branching model.
+   feature   Manage your feature branches.
+   release   Manage your release branches.
+   hotfix    Manage your hotfix branches.
+   support   Manage your support branches.
+   version   Shows version information.
+
+Try 'git flow <subcommand> help' for details.
+```
+
+## ④ プロジェクトの準備
+
+### 1. 好きな場所に「 batty_coffee_stand 」ディレクトリを作成
+
+私の場合、ホームディレクトリに`workspace`というディレクトリを作成し、そこでプロジェクトを管理しています。
+
+### 2. techboost の受講中コースから、「Front05 HTML と CSS でサイトを作成していく」を開き、プロジェクトを準備する
+
+```zsh
+$ mkdir batty_coffee_stand
+$ cd batty_coffee_stand
+$ touch index.html
+$ mkdir css
+
+# 前のコマンドの引数のディレクトリに移動
+$ cd $_
+$ touch style.css
+
+# 一つ上のディレクトリに移動
+$ cd ..
+$ mkdir image
+
+# lsコマンドでディレクトリの確認
+$ ls
+
+# このように出力されればOK！
+css        image      index.html
+```
+
+### 3. ローカルリポジトリの作成
+
+```zsh
 $ cd batty_coffee_standのディレクトリ
 ```
 
@@ -196,7 +172,7 @@ $ git commit -m "first commit"
 $ git push origin master
 ```
 
-### 5. git flow の設定
+### 4. git flow の設定
 
 ```zsh
 # ブランチの確認
@@ -223,6 +199,47 @@ $ git branch -a
 ```
 
 `git branch -a`を打ったとき、緑色のブランチが現在いるブランチ、赤色のブランチがリモートブランチです。
+
+## ⑤git flow について
+
+Git には、Git を使って開発しやすくするためのモデルがあります。<br>
+そのうちの一つが `git flow` です。
+
+[参考サイト](https://www.sejuku.net/blog/74224)
+
+今回の擬似体験では、master、develop、feature の 3 つのブランチを使います。
+
+`ブランチとは`
+
+> ブランチとは、履歴の流れを分岐して記録していくためのものです。<br>
+分岐したブランチは他のブランチの影響を受けないため、同じリポジトリ中で複数の変更を同時に進めていくことができます。<br>
+[サルでもわかる Git 入門](https://backlog.com/ja/git-tutorial/stepup/01/)より
+
+![Git Flow](./git_flow.png)
+
+**`master ブランチ`**
+
+**ユーザーにとっての最新版**
+
+master ブランチには常に安定して動く、リリースした後のコードを置いておきます。<br>
+git flow ではこのブランチに直接コミットをすることはないので気をつけましょう。
+
+**`develop ブランチ`**
+
+**開発者にとっての最新版**
+
+develop ブランチでは次のバージョンをリリースするために、最新の開発履歴を残しておきます。<br>
+git flow を使った開発の中心となるブランチで、常に最新の変更が加えられているブランチになります。<br>
+develop ブランチでリリースしたい内容の変更がすべて完了したら、master ブランチにマージします。
+
+**`feature ブランチ`**
+
+**タスクや機能ごとに切られたブランチ**
+
+feature ブランチは、develop ブランチから分岐しているブランチです。<br>
+この feature ブランチでは新しく追加する機能の開発や、簡単なバグの修正を行うことが出来ます。<br>
+feature ブランチを変更する機能の数だけ切って、その中で個々の機能についての変更を行っていきます。<br>
+このブランチで作業し終わったあとはこのブランチは削除するのが一般的です。
 
 ## ⑦issue 管理をしてみる
 
@@ -437,3 +454,5 @@ develop ブランチは今後も使われるので、ブランチを削除しな
 
 以上で今回の擬似体験は終了です。<br>
 ご自身の開発に活かしてみてください！！！
+
+不明点や修正点があれば、Slackの`24_○○_Sosuke`までお願いします。(名字は伏せてますが見つかるはず)
